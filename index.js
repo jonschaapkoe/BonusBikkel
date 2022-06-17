@@ -7,7 +7,7 @@ if (search == "") {
 } else {
 var poststring = "";
 console.log($.getJSON('https://www.reddit.com/r/persoonlijkebonus/.json'))
-/*
+
 $.getJSON('https://www.reddit.com/r/persoonlijkebonus/.json', function(data) {
 	var posts = data["data"]["children"];
 	var postcount = posts.length;
@@ -25,7 +25,7 @@ $.getJSON('https://www.reddit.com/r/persoonlijkebonus/.json', function(data) {
 		document.getElementById("output").innerHTML = "Geen BonusBoxen gevonden";
 	};
   });
-*/
+
 }
 };
 
