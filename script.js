@@ -17,5 +17,5 @@ function searchBonusBoxes() {
 				document.getElementById("output").innerHTML = "Geen BonusBoxen gevonden";
 			};
   		});
-	}
+	};
 };

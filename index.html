@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<center>
-<h1>Bonusbikkel</h1>
-<p></p>
-<input class = "searchbar" id = "searchbar" type="text" name="search" placeholder = "Search BonusBoxes" onkeyup="searchBonusBoxes()">
-<p></p>
-<div id="output"></div>
-</center>
-<script src="script.js"></script>
-</body>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<center>
+			<h1>Bonusbikkel</h1>
+			<input class="searchbar" id="searchbar" type="text" name="search" placeholder="Search BonusBoxes" onkeyup="searchBonusBoxes()">
+			<div class="grid-container">
+				<div class="card" onclick="location.href='#'" >
+					<img src="tmp.png" class="card-img">
+					<h4 class="card-title">Title</h4>
+				</div>
+				<div class="card" onclick="location.href='#'" >
+					<img src="tmp.png" class="card-img">
+					<h4 class="card-title">Title</h4>
+				</div>
+				<div class="card" onclick="location.href='#'" >
+					<img src="tmp.png" class="card-img">
+					<h4 class="card-title">Title</h4>
+				</div>
+			</div>
+		</center>
+		<script src="script.js"></script>
+	</body>
 </html>
