@@ -27,8 +27,9 @@ $.getJSON('https://www.reddit.com/r/persoonlijkebonus/.json', function(data) {
         let cardData = {
             title: posts[i]['data']['title'],
             url: posts[i]['data']['data'],
-            img: posts[i]['data']['media_metadata'][1] // [p]/[s]/[u]->([1])->[u]
+            img: posts[i]['data']['media_metadata'][1] // [p]/[s]/[u]->([0])->[u]
         }
         createCard(gridDiv, cardData);
     }
 })
+functionsearchBonusBoxes() 
