@@ -1,4 +1,4 @@
-export function createCard(gridDiv, img, title, url) {
+function createCard(gridDiv, img, title, url) {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
     cardDiv.setAttribute('onclick', `location.href="${url}"`);
