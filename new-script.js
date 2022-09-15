@@ -1,4 +1,4 @@
-function createCard(/*gridDiv, */cardData) {
+function createCard(gridDiv, cardData) {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
     cardDiv.setAttribute('onclick', `location.href="${cardData.url}"`);
@@ -11,7 +11,7 @@ function createCard(/*gridDiv, */cardData) {
 
     /*cardDiv.appendChild(cardImg);*/
     cardDiv.appendChild(cardTitle);
-    /*gridDiv.appendChild(cardDiv);*/
+    gridDiv.appendChild(cardDiv);
 };
 
 /*const cardData = {
@@ -33,7 +33,7 @@ $.getJSON('https://www.reddit.com/r/persoonlijkebonus/.json', function(data) {
             url: posts[i]['data']['data'],
             /*img: posts[i]['data']['media_metadata'][1] /* [p]/[s]/[u]->([0])->[u] */
         };
-        cards.push(createCard(/*gridDiv, */cardData));
+        cards.push(createCard(gridDiv, cardData));
     };
     console.log(cards);
     for (let card in cards) {
