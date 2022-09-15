@@ -12,6 +12,7 @@ function createCard(gridDiv, cardData) {
     /*cardDiv.appendChild(cardImg);*/
     cardDiv.appendChild(cardTitle);
     gridDiv.appendChild(cardDiv);
+    return cardDiv
 };
 
 /*const cardData = {
