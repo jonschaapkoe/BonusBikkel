@@ -31,7 +31,7 @@ $.getJSON('https://www.reddit.com/r/persoonlijkebonus/.json', function(data) {
         console.log(i);
         let cardData = {
             title: posts[i]['data']['title'],
-            url: posts[i]['data']['id'],
+            url: `https://www.reddit.com/r/persoonlijkebonus/comments/${posts[i]["data"]["id"]}`,
             /*img: posts[i]['data']['media_metadata'][1] /* [p]/[s]/[u]->([0])->[u] */
         };
         cards.push(createCard(gridDiv, cardData));
