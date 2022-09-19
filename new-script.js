@@ -40,6 +40,6 @@ $.getJSON('https://www.reddit.com/r/persoonlijkebonus/.json', function(data) {
     for (let card in cards) {
         gridDiv.appendChild(card);
     };
+    getData = document.getElementById('getData');
+    getData.remove();
 });
-getData = document.getElementById('getData');
-getData.remove();
