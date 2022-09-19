@@ -1,4 +1,4 @@
-Nofunction createCard(gridDiv, cardData) {
+function createCard(gridDiv, cardData) {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
     cardDiv.setAttribute('onclick', `location.href="${cardData.url}"`);
