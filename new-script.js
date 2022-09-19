@@ -37,8 +37,6 @@ $.getJSON('https://www.reddit.com/r/persoonlijkebonus/.json', function(data) {
         cards.push(createCard(gridDiv, cardData));
     };
     console.log(cards);
-    setTimeout(() => {
-        getData = document.getElementById('getData');
-        getData.remove();
-        }, 500);
+    getData = document.getElementById('getData');
+    getData.remove();
 });
