@@ -12,7 +12,7 @@ function createCard(gridDiv, cardData) {
     /*cardDiv.appendChild(cardImg);*/
     cardDiv.appendChild(cardTitle);
     gridDiv.appendChild(cardDiv);
-    return cardDiv
+    return cardDiv;
 };
 
 /*const cardData = {
@@ -38,6 +38,8 @@ $.getJSON('https://www.reddit.com/r/persoonlijkebonus/.json', function(data) {
     };
     console.log(cards);
     for (let card in cards) {
-        gridDiv.appendChild(card)
-    }
-})
+        gridDiv.appendChild(card);
+    };
+});
+getData = element.getElementById('getData');
+getData.remove();
