@@ -1,31 +1,37 @@
 
-
-function searchBonusBoxes() {
-let search = document.getElementById('searchbar').value
-if (search == "") {
-	document.getElementById("output").innerHTML = "";
-} else {
-var poststring = "";
-console.log($.getJSON('https://www.reddit.com/r/persoonlijkebonus/.json'))
-
-$.getJSON('https://www.reddit.com/r/persoonlijkebonus/.json', function(data) {
-	var posts = data["data"]["children"];
-	var postcount = posts.length;
-	for (var i = 0; i < postcount; i++) {
+//fetch API used to fetch posts from persoonlijkebonus subreddit
+fetch('https://www.reddit.com/r/persoonlijkebonus.json')
+  .then(response => response.json())
+  .then(data => {
+    //create an empty array to store posts
+    let posts = [];
+    //loop through the data
+    for (let i = 0; i < data.data.children.length; i++) { 
+    	if (['KORTING LOOPT / KOOPZEGELS AAN', 'VANAF MAANDAG / KOOPZEGELS AAN'].includes(data.data.children[i].data['link_flair_text'])) {
+		// Create a div for each element 
+		let button = document.createElement("button");
 		
-		var posttitle = (posts[i]["data"]["title"]);
-    		if (posttitle.toLowerCase().includes(search.toLowerCase())) {
-			poststring = `${poststring}<a href="https://www.reddit.com/r/persoonlijkebonus/comments/${posts[i]["data"]["id"]}">${posts[i]["data"]["title"]}</a><p></p>`;
-			document.getElementById("output").innerHTML = poststring;
-		};
-	
-	};
+		// Give the button a class
+		button.className = "result";
+		  
+		  // Create a text node for the button
+		let textNode = document.createTextNode(data.data.children[i].data["title"]);
 
-	if (poststring == "") {
-		document.getElementById("output").innerHTML = "Geen BonusBoxen gevonden";
+		// Append the text node to the button
+		button.appendChild(textNode);
+
+		// Add the button to the HTML document
+		document.body.appendChild(button);
+
+		// Add event listener to the button
+		button.addEventListener("click", function() {
+		  // Add the link you want to lead to
+		  window.location.href = data.data.children[i].data["url"];
+	});
 	};
-  });
+	};
+});
+function searchBonusBoxes() {
 
 }
-};
 

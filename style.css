@@ -1,4 +1,6 @@
 .searchbar {
+  font-family: HamburgTS,Arial,Helvetica,sans-serif;
+  font-size: 30px;
   height:24px;
   width: 568.417px;
   padding:16px 24px 16px 48px;
@@ -8,3 +10,15 @@
   border-radius:32px;
   border:none
  }
+ 
+ .result {
+  text-align: center
+  margin: 0 auto;
+  border-radius: 16px;
+  font-family: HamburgTS,Arial,Helvetica,sans-serif;
+  color: #ffffff;
+  font-size: 30px;
+  background: #00ade6;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
