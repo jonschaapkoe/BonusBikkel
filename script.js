@@ -1,36 +1,34 @@
+function checkTime(unixTimeStamp){
+	const currentDay = Date.currentDay();
+	const startOfWeek = Date();
+	startOfWeek.setDate(Date.getDate() - currentDay + 1);
+	startOfWeek.setHours(0, 0, 0, 0);
+
+	return unixTimeStamp >= startOfWeek;
+};
+
+
 const output = document.getElementById("output");
 //fetch API used to fetch posts from persoonlijkebonus subreddit
 fetch('https://www.reddit.com/r/persoonlijkebonus.json?limit=50')
   .then(response => response.json())
   .then(data => {
-    //create an empty array to store posts
     let posts = [];
-    //loop through the data
     for (let i = 0; i < data.data.children.length; i++) { 
-    	if (['KORTING LOOPT / KOOPZEGELS AAN', 'VANAF MAANDAG / KOOPZEGELS AAN'].includes(data.data.children[i].data['link_flair_text'])) {
-		// Create a div for each element 
-		let button = document.createElement("button");
-		
-		// Give the button a class
-		button.className = "result";
-		  
-		  // Create a text node for the button
-		let textNode = document.createTextNode(data.data.children[i].data["title"]);
-
-		// Append the text node to the button
-		button.appendChild(textNode);
-
-		// Add the button to the HTML document
-		output.appendChild(button);
-
-		// Add event listener to the button
-		button.addEventListener("click", function() {
-		  // Add the link you want to lead to
-		  window.location.href = data.data.children[i].data["url"];
+    	if (['KORTING LOOPT / KOOPZEGELS AAN', 'KORTING LOOPT / KOOPZEGELS UIT'].includes(data.data.children[i].data['link_flair_text'])
+		&& checkTime(data.data.children[i].data['created'])) {
+			
+			let button = document.createElement("button");
+			button.className = "result";
+			let textNode = document.createTextNode(data.data.children[i].data["title"]);
+			button.appendChild(textNode);
+			output.appendChild(button);
+			button.addEventListener("click", function() {
+				window.location.href = data.data.children[i].data["url"];
+				});
+			};
+		};
 	});
-	};
-	};
-});
 document.getElementById("laden").style.display = "none";
 
 function searchBonusBoxes() {
@@ -44,30 +42,18 @@ fetch('https://www.reddit.com/r/persoonlijkebonus/search.json?q='+input+'&restri
   console.log(data);
     //loop through the data
     for (let i = 0; i < data.data.children.length; i++) { 
-    	if (['KORTING LOOPT / KOOPZEGELS AAN', 'VANAF MAANDAG / KOOPZEGELS AAN'].includes(data.data.children[i].data['link_flair_text'])) {
-		// Create a div for each element 
-		let button = document.createElement("button");
-		
-		// Give the button a class
-		button.className = "result";
-		  
-		  // Create a text node for the button
-		let textNode = document.createTextNode(data.data.children[i].data["title"]);
-
-		// Append the text node to the button
-		button.appendChild(textNode);
-
-		// Add the button to the HTML document
-		output.appendChild(button);
-
-		// Add event listener to the button
-		button.addEventListener("click", function() {
-		  // Add the link you want to lead to
-		  window.location.href = data.data.children[i].data["url"];
+    	if (['KORTING LOOPT / KOOPZEGELS AAN', 'KORTING LOOPT / KOOPZEGELS UIT'].includes(data.data.children[i].data['link_flair_text'])
+		&& checkTime(data.data.children[i].data['created'])) {
+			let button = document.createElement("button");
+			button.className = "result";
+			let textNode = document.createTextNode(data.data.children[i].data["title"]);
+			button.appendChild(textNode);
+			output.appendChild(button);
+			button.addEventListener("click", function() {
+				window.location.href = data.data.children[i].data["url"];
+				});
+			};
+		};
 	});
-	};
-	};
-});
+};
 document.getElementById("laden").style.display = "none";
-}
-
