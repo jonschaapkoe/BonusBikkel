@@ -3,7 +3,7 @@ function checkTime(unixTimeStamp){
 	const currentDay = now.getDay();
 	const startOfWeek = new Date();
 
-	startOfWeek.setDate(Date.getDate() - currentDay + 1);
+	startOfWeek.setDate(now.getDate() - currentDay + 1);
 	startOfWeek.setHours(0, 0, 0, 0);
 
 	return unixTimeStamp >= startOfWeek;
