@@ -1,7 +1,7 @@
 function checkTime(unixTimeStamp){
-	const now = Date()
+	const now = new Date()
 	const currentDay = now.getDay();
-	const startOfWeek = Date();
+	const startOfWeek = new Date();
 
 	startOfWeek.setDate(Date.getDate() - currentDay + 1);
 	startOfWeek.setHours(0, 0, 0, 0);
